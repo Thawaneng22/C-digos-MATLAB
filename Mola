@@ -12,10 +12,15 @@ if d >= 0.25 && d <= 6.5
             break
 else  
      disp('Diâmetro inválido!')
-     d = input('Insira um diâmetro no intervalo [0.25 - 6.5]!')
-    
+     disp('Insira um diâmetro no intervalo [0.25 - 6.5]!')
+  opcao = {'OK','CANCELAR'};
+     e = menu('Insira um diâmetro no intervalo [0.25 - 6.5]!',opcao);
+     if e == 2
+    break
+     end
+d = input('Informe o diâmetro'); 
+end
 end                 
-  end
 case 2
     while true
         if d >= 0.5 && d <= 16
@@ -25,9 +30,14 @@ case 2
             break
         else
             disp('Diâmetro inválido!')
-            d=input('Insira um diâmetro no intervalo [0.5 - 16]!')
-
-        end
+            disp('Insira um diâmetro no intervalo [0.5 - 16]!')
+ opcao = {'OK','CANCELAR'};
+     e = menu('Insira um diâmetro no intervalo [0.25 - 16]!',opcao);
+     if e == 2
+    break
+     end
+d = input('Informe o diâmetro'); 
+end
     end
     case 3
         while true
@@ -38,8 +48,14 @@ case 2
             break
         else
             disp('Diâmetro inválido!')
-           d=input('Insira um diâmetro no intervalo [0.5 - 16]!')
-        end
+           disp('Insira um diâmetro no intervalo [0.5 - 16]!')
+            opcao = {'OK','CANCELAR'};
+     e = menu('Insira um diâmetro no intervalo [0.5 - 16]!',opcao);
+     if e == 2
+    break
+     end
+d = input('Informe o diâmetro'); 
+end
         end
     case 4
         while true
@@ -50,8 +66,14 @@ case 2
             break
         else
             disp('Diâmetro inválido!')
-           d=input('Insira um diâmetro no intervalo [0.5 - 13]!')
-        end
+          disp('Insira um diâmetro no intervalo [0.5 - 13]!')
+           opcao = {'OK','CANCELAR'};
+     e = menu('Insira um diâmetro no intervalo [0.5 - 13]!',opcao);
+     if e == 2
+    break
+     end
+d = input('Informe o diâmetro'); 
+end
         end
     case 5
         while true
@@ -62,6 +84,13 @@ case 2
             break
         else
             disp('Diâmetro inválido!')
-            d=input('Insira um diâmetro no intervalo [0.5 - 11]!')
+            disp('Insira um diâmetro no intervalo [0.5 - 11]!')
+             opcao = {'OK','CANCELAR'};
+     e = menu('Insira um diâmetro no intervalo [0.5 - 11]!',opcao);
+     if e == 2
+    break
+     end
+d = input('Informe o diâmetro'); 
+end
         end
-        end
+end
