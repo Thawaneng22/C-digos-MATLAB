@@ -1,0 +1,67 @@
+options = {'Corda de piano ','Aço revenido em óleo ','Aço encruado ','Aço liga Cr-Va','Aço liga Cr-Si'};
+response = menu('Escolha o Tipo de Material',options);
+d = input('Informe o diâmetro');
+switch(response)
+
+   case 1
+  while true
+if d >= 0.25 && d <= 6.5
+            B = 2153.5;
+            a = - 0.1625;
+            selecao_diametro(d, B, a)
+            break
+else  
+     disp('Diâmetro inválido!')
+     d = input('Insira um diâmetro no intervalo [0.25 - 6.5]!')
+    
+end                 
+  end
+case 2
+    while true
+        if d >= 0.5 && d <= 16
+            B = 1831.2;
+            a = - 0.1833;
+            selecao_diametro(d, B, a)
+            break
+        else
+            disp('Diâmetro inválido!')
+            d=input('Insira um diâmetro no intervalo [0.5 - 16]!')
+
+        end
+    end
+    case 3
+        while true
+        if d >= 0.5 && d <= 16
+            B = 1753.3;
+            a = - 0.1822;
+            selecao_diametro(d, B, a)
+            break
+        else
+            disp('Diâmetro inválido!')
+           d=input('Insira um diâmetro no intervalo [0.5 - 16]!')
+        end
+        end
+    case 4
+        while true
+        if d >= 0.5 && d <= 13
+            B = 1909.9;
+            a = - 0.1473;
+            selecao_diametro(d, B, a)
+            break
+        else
+            disp('Diâmetro inválido!')
+           d=input('Insira um diâmetro no intervalo [0.5 - 13]!')
+        end
+        end
+    case 5
+        while true
+        if d >= 0.8 && d <= 11
+            B = 1909.9;
+            a = - 0.1473;
+            selecao_diametro(d, B, a)
+            break
+        else
+            disp('Diâmetro inválido!')
+            d=input('Insira um diâmetro no intervalo [0.5 - 11]!')
+        end
+        end
