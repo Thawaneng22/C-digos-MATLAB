@@ -15,12 +15,12 @@ else
      disp('Insira um diâmetro no intervalo [0.25 - 6.5]!')
   opcao = {'OK','CANCELAR'};
      e = menu('Insira um diâmetro no intervalo [0.25 - 6.5]!',opcao);
+end
      if e == 2
     break
      end
 d = input('Informe o diâmetro'); 
-end
-end                 
+  end                
 case 2
     while true
         if d >= 0.5 && d <= 16
@@ -33,11 +33,11 @@ case 2
             disp('Insira um diâmetro no intervalo [0.5 - 16]!')
  opcao = {'OK','CANCELAR'};
      e = menu('Insira um diâmetro no intervalo [0.25 - 16]!',opcao);
+        end
      if e == 2
     break
      end
 d = input('Informe o diâmetro'); 
-end
     end
     case 3
         while true
@@ -51,11 +51,11 @@ end
            disp('Insira um diâmetro no intervalo [0.5 - 16]!')
             opcao = {'OK','CANCELAR'};
      e = menu('Insira um diâmetro no intervalo [0.5 - 16]!',opcao);
+        end
      if e == 2
     break
      end
 d = input('Informe o diâmetro'); 
-end
         end
     case 4
         while true
@@ -69,11 +69,11 @@ end
           disp('Insira um diâmetro no intervalo [0.5 - 13]!')
            opcao = {'OK','CANCELAR'};
      e = menu('Insira um diâmetro no intervalo [0.5 - 13]!',opcao);
+        end
      if e == 2
     break
      end
 d = input('Informe o diâmetro'); 
-end
         end
     case 5
         while true
@@ -87,10 +87,10 @@ end
             disp('Insira um diâmetro no intervalo [0.5 - 11]!')
              opcao = {'OK','CANCELAR'};
      e = menu('Insira um diâmetro no intervalo [0.5 - 11]!',opcao);
+        end
      if e == 2
     break
      end
 d = input('Informe o diâmetro'); 
-end
         end
 end
