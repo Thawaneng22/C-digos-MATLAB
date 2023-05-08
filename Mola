@@ -1,6 +1,6 @@
 options = {'Corda de piano ','Aço revenido em óleo ','Aço encruado ','Aço liga Cr-Va','Aço liga Cr-Si'};
 response = menu('Escolha o Tipo de Material',options);
-d = input('Informe o diâmetro');
+d = input('Informe o diâmetro:');
 switch(response)
 
    case 1
@@ -19,7 +19,7 @@ end
      if e == 2
     break
      end
-d = input('Informe o diâmetro'); 
+d = input('Informe o diâmetro:'); 
   end                
 case 2
     while true
@@ -37,7 +37,7 @@ case 2
      if e == 2
     break
      end
-d = input('Informe o diâmetro'); 
+d = input('Informe o diâmetro:'); 
     end
     case 3
         while true
@@ -55,7 +55,7 @@ d = input('Informe o diâmetro');
      if e == 2
     break
      end
-d = input('Informe o diâmetro'); 
+d = input('Informe o diâmetro:'); 
         end
     case 4
         while true
@@ -73,7 +73,7 @@ d = input('Informe o diâmetro');
      if e == 2
     break
      end
-d = input('Informe o diâmetro'); 
+d = input('Informe o diâmetro:'); 
         end
     case 5
         while true
@@ -91,6 +91,6 @@ d = input('Informe o diâmetro');
      if e == 2
     break
      end
-d = input('Informe o diâmetro'); 
+d = input('Informe o diâmetro:'); 
         end
 end
