@@ -1,0 +1,50 @@
+clear;clc;
+passos = [0.25 0.05 0.1 0.2 0.3 0.7 0.5 1];
+repeticoes = [1 9 5 5 2 1 7 9];
+passos_repetidos = repelem(passos,repeticoes);
+soma_cumulativa = cumsum(passos_repetidos);
+tabela = struct('Material','Corda de Piano','Faixa_de_diametro',soma_cumulativa(1:29),'Expoent_a',-0.1625,'Coeficiente_b',2153.5);
+tabela(2).Material = 'Aço revenido em óleo';
+tabela(3).Material = 'Aço encruado';
+tabela(4).Material = 'Aço liga Cr-Va';
+tabela(5).Material = 'Aço liga Cr-Si';
+tabela(2).Faixa_de_diametro = soma_cumulativa(6:39);
+tabela(3).Faixa_de_diametro = soma_cumulativa(6:39);
+tabela(4).Faixa_de_diametro = soma_cumulativa(6:36);
+tabela(5).Faixa_de_diametro = soma_cumulativa(11:34);
+tabela(2).Expoent_a = -0.1833;
+tabela(3).Expoent_a =-0.1822;
+tabela(4).Expoent_a = -0.1453;
+tabela(5).Expoent_a = -0.0934;
+tabela(2).Coeficiente_b = 1831.2;
+tabela(3).Coeficiente_b = 1753.3;
+tabela(4).Coeficiente_b = 1909.9;
+tabela(5).Coeficiente_b = 2059.2;
+Menu = menu('Qual tipo de Material',tabela.Material);
+diametro = input('Digite o diâmetro: ');
+try
+   if diametro<tabela(Menu).Faixa_de_diametro(1)
+       d = 1000;
+   end
+    for i = 1:length(tabela(Menu).Faixa_de_diametro)
+if diametro > tabela(Menu).Faixa_de_diametro(i) && diametro < tabela(Menu).Faixa_de_diametro(i+1)
+    diametro = tabela(Menu).Faixa_de_diametro(i+1);
+    fprintf('Diâmetro corrigido para %.3f mm\n',diametro)
+end
+    end
+catch e
+    disp(e.message)
+    fprintf('Valor deve estar entre %.2f e %.2f\n',tabela(Menu).Faixa_de_diametro(1),tabela(Menu).Faixa_de_diametro(length(tabela(Menu).Faixa_de_diametro)))
+    diametro = input('Digite um diametro no intervalo: ');
+    for i = 1:length(tabela(Menu).Faixa_de_diametro)
+if diametro > tabela(Menu).Faixa_de_diametro(i) && diametro < tabela(Menu).Faixa_de_diametro(i+1)
+    diametro = tabela(Menu).Faixa_de_diametro(i+1);
+    fprintf('Diâmetro corrigido para %.3f mm\n',diametro)
+  
+end
+    end
+end
+b = tabela(Menu).Coeficiente_b;
+a = tabela(Menu).Expoent_a;
+Sut = b*diametro^a;
+  fprintf('Resistência a tração: %.3f MPa\n', Sut)
