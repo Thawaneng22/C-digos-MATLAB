@@ -1,0 +1,63 @@
+clear;clc;
+% Dados de exemplo
+x = [-8 -6 -4 -2 0 2 4];
+y = [30 10 9 6 5 4 4];
+
+% Número de dobras (k)
+k = 5;
+
+% grau do polinômio
+n = 2;
+
+% Dividir os dados em k dobras
+indices = crossvalind('Kfold', length(x), k);
+
+% Vetor para armazenar os coeficientes do polinômio ajustado
+coefficients = zeros(3, k); % Grau 2, portanto 3 coeficientes
+
+%erro
+rmse = zeros(1,k);
+
+% Plot de todos os pontos de dados originais
+figure;
+scatter(x, y, 'o', 'DisplayName', 'Valores Originais');
+hold on;
+
+% Loop para cada dobra
+for fold = 1:k
+    % Separar os dados em treinamento e teste com base nas dobras
+    x_train = x(indices ~= fold);
+    y_train = y(indices ~= fold);
+    x_test = x(indices == fold);
+    y_test = y(indices == fold);
+    
+    % Ajustar um polinômio de grau 2 aos dados de treinamento
+    coefficients(:, fold) = polyfit(x_train, y_train, n);
+
+    % Calcular os valores ajustados para os dados de teste
+    y_fit = polyval(coefficients(:, fold), x_test);
+    
+    % Plotar os dados de treinamento
+    plot(x_train, y_train, 'o', 'DisplayName', sprintf('Treinamento Fold %d', fold));
+    
+    % Plotar a curva ajustada
+    x_curve = linspace(min(x_train), max(x_train), 100); % Pontos para a curva
+    y_curve = polyval(coefficients(:, fold), x_curve); % Valores ajustados da curva
+    plot(x_curve, y_curve, 'DisplayName', sprintf('Curva Ajustada Fold %d', fold));
+
+    rmse(:,fold) = sqrt(mean((y_test - y_fit).^2));
+end
+
+% Adicionar legenda ao gráfico
+legend;
+
+% Mostrar o gráfico
+xlabel('X');
+ylabel('Y');
+title('Ajuste de Curva com Validação Cruzada k-Fold');
+grid on;
+hold off
+
+disp("Erro Quadrático Médio \n")
+fprintf("= %f \n",rmse)
+
